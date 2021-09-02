@@ -10,4 +10,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected function setNotification($message = 'Data save successfully!', $type = 'success')
+    {
+        session()->flash('message', $message );
+        session()->flash('type', $type);
+    }
+
 }
