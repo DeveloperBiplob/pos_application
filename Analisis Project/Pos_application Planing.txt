@@ -1,0 +1,20 @@
+
+------------- Pos_application Planing ------------- 
+
+Admin Login
+
+UserGroup
+Users (Sales, Purchase, Payment, Receipt)
+
+Categories
+Products
+
+Sales
+  Invoice
+  Items
+
+Purchases 
+  Invoices
+  Items
+Payments
+Receipis
