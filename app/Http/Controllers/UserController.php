@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
+use App\Models\Group;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Unique;
 
 class UserController extends Controller
 {
@@ -11,9 +15,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view()->exists('users.index') ? view('users.index') : abort(404);
+        $users = User::all();
+        return view()->exists('users.index') ? view('users.index', compact('users')) : abort(404);
     }
 
     /**
@@ -23,7 +28,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $groups = Group::all();
+
+        // Group model e static function call kore ekhane use korchi
+        // $groups = Group::selectGroup();
+
+        return view()->exists('users.create') ? view('users.create', compact('groups')) : abort(404);
     }
 
     /**
@@ -32,9 +42,23 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $data = [
+            'group_id' => $request->group_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+        ];
+        $result = User::create($data);
+
+        if($result){
+            $this->setNotification('Data Save Successfully!', 'success');
+            return redirect()->route('user.index');
+        }else{
+            return back();
+        }
     }
 
     /**
@@ -43,9 +67,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -54,9 +78,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $groups = Group::all();
+        return view()->exists('users.edit') ? view('users.edit', compact(['user', 'groups'])) : abort(404);
     }
 
     /**
@@ -66,9 +91,24 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        // $user = User::findOrFail($id);
+
+        $result = $user->update([
+            'group_id' => $request->group_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+        ]);
+
+        if($result){
+            $this->setNotification('Data Update Successfully!', 'success');
+            return redirect()->route('user.index');
+        }else{
+            return back();
+        }
     }
 
     /**
@@ -77,8 +117,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        // $user = User::findOrFail($id);
+        if($user->delete()){
+            $this->setNotification('Data Delete Successfully!', 'success');
+            return redirect()->route('user.index');
+        }else{
+            return back();
+        }
     }
 }

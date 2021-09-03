@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header">
             <h3 class="text-info float-left">Update Groups</h3>
-            <a href="{{ route('group.index') }}" class="btn btn-primary float-right">Back Dashboard</a>
+            <a href="{{ route('group.index') }}" class="btn btn-primary btn-sm float-right">Back Dashboard</a>
         </div>
         <div class="card-body">
             <form action="{{ route('group.update', $group->id) }}" method="POST">

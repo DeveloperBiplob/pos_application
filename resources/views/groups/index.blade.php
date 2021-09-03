@@ -8,7 +8,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h3 class="m-0 font-weight-bold text-primary float-left">User Groups</h3>
+            <h3 class="m-0 font-weight-bold text-primary float-left">All Groups</h3>
             <a href="{{ route('group.create') }}" class="btn btn-primary btn-sm float-right">Add Groups</a>
         </div>
         <div class="card-body">
