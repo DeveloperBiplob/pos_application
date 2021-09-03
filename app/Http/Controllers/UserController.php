@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $users = User::all();
-        return view()->exists('users.index') ? view('users.index', compact('users')) : abort(404);
+        return view()->exists('users.index') ? view('users.index', compact('users')) : abort(404); 
     }
 
     /**

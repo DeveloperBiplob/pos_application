@@ -20,7 +20,7 @@
                 </div>
                 @error('group_id')
                 <span class="text-danger">{{ $message }}</span>
-            @enderror
+                @enderror
                 <div class="form-group">
                     <label for="">Name<span class="text-danger">*</span></label>
                     <input type="text" name="name" id="" class="form-control" placeholder="Enter a Name">
