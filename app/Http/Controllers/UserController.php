@@ -17,7 +17,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::all();
+        $users = User::with('group')->get();
+        // $users = User::all();
         return view()->exists('users.index') ? view('users.index', compact('users')) : abort(404); 
     }
 
