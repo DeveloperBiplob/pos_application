@@ -3,14 +3,14 @@
 @section('master-content')
 <div class="row">
     <div class="col-md-3">
-            <a href="{{ route('user.index') }}" class="btn btn-danger btn-sm"><i class="fa fa-arrow-left"></i> Back Dashboard</a>
+            <a href="{{ route('user.index') }}" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-left"></i> Back Dashboard</a>
     </div>
     <div class="col-md-9">
         <div class="float-right">
-            <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm" style="width:150px">New Sale</a>
-            <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm" style="width:150px">New Purchase</a>
-            <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm" style="width:150px">New payment</a>
-            <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm" style="width:150px">New Receipt</a>
+            <button type="button" class="btn btn-secondary btn-sm mr-1" data-toggle="modal" data-target="#saleModal"><i class="fa fa-plus"></i> New Sale</button>
+            <button type="button" class="btn btn-secondary btn-sm mr-1" data-toggle="modal" data-target="#purchaseModal"><i class="fa fa-plus"></i> New Purchase</button>
+            <button type="button" class="btn btn-secondary btn-sm mr-1" data-toggle="modal" data-target="#paymentModal"><i class="fa fa-plus"></i> New Payment</button>
+            <button type="button" class="btn btn-secondary btn-sm " data-toggle="modal" data-target="#receiptModal"><i class="fa fa-plus"></i> New Receipt</button>
         </div>
     </div>
 </div>

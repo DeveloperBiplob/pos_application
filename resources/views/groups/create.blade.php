@@ -3,7 +3,7 @@
 @section('master-content')
     <div class="card">
         <div class="card-header">
-            <h3 class="text-info float-left">Add Groups</h3>
+            <h3 class="text-info float-left"><i class="fa fa-plus"></i> Add Groups</h3>
             <a href="{{ route('group.index') }}" class="btn btn-primary btn-sm float-right">Back Dashboard</a>
         </div>
         <div class="card-body">

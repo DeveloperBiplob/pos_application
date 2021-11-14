@@ -48,16 +48,16 @@
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->address }}</td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="{{ route('user.edit', $user->id) }}">Edit</a>
-                                <a class="btn btn-info btn-sm" href="{{ route('user.show', $user->id) }}">view</a>
+                                <a class="btn btn-primary btn-sm" href="{{ route('user.edit', $user->id) }}"><i class="fa fa-pencil-alt"></i></a>
+                                <a class="btn btn-info btn-sm" href="{{ route('user.show', $user->id) }}"><i class="fa fa-eye""></i></a>
                                 <form class="d-inline" action="{{ route('user.destroy', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick=" return confirm('Are you Sure Delete This Data?')" class="btn btn-danger btn-sm">Delete</button>
+                                    <button onclick=" return confirm('Are you Sure Delete This Data?')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
-                        @endforeach 
+                        @endforeach
                     </tbody>
                 </table>
             </div>

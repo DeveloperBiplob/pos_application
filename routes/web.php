@@ -101,7 +101,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/user', UserController::class);
     Route::get('user/{id}/sales', [UserSaleController::class, 'index'])->name('user.sale');
     Route::get('user/{id}/purchases', [UserPurchaseController::class, 'index'])->name('user.purchases');
+
     Route::get('user/{id}/payments', [UserPaymentsController::class, 'index'])->name('user.payments');
+    Route::post('user/{user}/payments', [UserPaymentsController::class, 'store'])->name('user.payments.store');
+    Route::delete('user/{payment}/payments', [UserPaymentsController::class, 'destroy'])->name('user.payments.destroy');
+
     Route::get('user/{id}/receipts', [UserReceiptsController::class, 'index'])->name('user.receipts');
 
 

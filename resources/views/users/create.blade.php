@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header">
             <h3 class="text-info float-left">Add Users</h3>
-            <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm float-right">Back Dashboard</a>
+            <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm float-right"><i class="fa fa-arrow-left"></i> Back Dashboard</a>
         </div>
         <div class="card-body">
             <form action="{{ route('user.store') }}" method="POST">
@@ -14,7 +14,7 @@
                     <select class="form-control" name="group_id" id="">
                         <option value="">Select Group</option>
                         @foreach ($groups as $group)
-                        <option value="{{ $group->id }}">{{ $group->title }}</option>       
+                        <option value="{{ $group->id }}">{{ $group->title }}</option>
                         @endforeach
                     </select>
                 </div>
